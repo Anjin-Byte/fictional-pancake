@@ -1,2 +1,2 @@
 # fictional-pancake
-3D renderer in the browser
+* [`Demo`](https://github.com/Anjin-Byte/fictional-pancake)
