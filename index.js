@@ -34,9 +34,7 @@ void main() {
 
 
 const vertexShader = gl.createShader(gl.VERTEX_SHADER);
-
 gl.shaderSource(vertexShader, vsGLSL);
-
 gl.compileShader(vertexShader);
 
 if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
@@ -45,9 +43,7 @@ if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
 
 
 const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-
 gl.shaderSource(fragmentShader, fsGLSL);
-
 gl.compileShader(fragmentShader);
 
 if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
@@ -56,11 +52,8 @@ if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
 
 
 const prg = gl.createProgram();
-
 gl.attachShader(prg, vertexShader);
-
 gl.attachShader(prg, fragmentShader);
-
 gl.linkProgram(prg);
 
 if (!gl.getProgramParameter(prg, gl.LINK_STATUS)) {
@@ -74,16 +67,12 @@ if (!gl.getProgramParameter(prg, gl.LINK_STATUS)) {
 // a program is linked though it is arguably not common.
 // and I usually don't do it.
 gl.detachShader(prg, vertexShader);
-
 gl.deleteShader(vertexShader);
-
 gl.detachShader(prg, fragmentShader);
-
 gl.deleteShader(fragmentShader);
 
 
 const positionLoc = gl.getAttribLocation(prg, 'position');
-
 const colorLoc = gl.getAttribLocation(prg, 'color');
 
 
