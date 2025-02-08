@@ -1,8 +1,3 @@
-//const crypto = require("crypto");
-//const crypto_orig_createHash = crypto.createHash;
-//crypto.createHash = algorithm => crypto_orig_createHash(algorithm == "md4" ? "sha256" : algorithm);
-
-
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require('path');
 
@@ -13,11 +8,18 @@ module.exports = {
     filename: "index.js",
   },
   mode: "development",
+  devServer: {
+    static: './dist',
+    port: 3000,
+    open: false,
+    hot: true,
+  },
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
         { from: 'index.html' }
       ]
     })
-  ]
+  ],
+  devtool: "source-map"
 };
